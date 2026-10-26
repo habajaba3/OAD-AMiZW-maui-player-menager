@@ -7,63 +7,62 @@
         <VerticalStackLayout
             Padding="29"
             Spacing="15">
-            <Label 
+
+            <!-- DODAWANIE GRACZA -->
+            <Label
                 Text="Dodaj gracza"
                 FontSize="24"
                 FontAttributes="Bold"/>
+
             <Entry
                 Placeholder="Nazwa gracza"
                 Text="{Binding PlayerName}"/>
+
             <Entry
                 Placeholder="Poziom gracza"
                 Keyboard="Numeric"
                 Text="{Binding PlayerLevel}"/>
+
             <Button
                 Text="Dodaj gracza"
-                Command="{Binding AddPlayerCommandButton}" />
-            
-            
-            
-            
+                Command="{Binding AddPlayerCommandButton}"/>
 
+            <!-- LISTA GRACZY -->
             <Label
                 Text="Lista graczy"
                 FontSize="24"
                 FontAttributes="Bold"
                 Margin="0,20,0,0"/>
+
             <CollectionView
-    ItemsSource="{Binding Players}"
-    HeightRequest="250">
+                ItemsSource="{Binding Players}"
+                HeightRequest="250">
 
                 <CollectionView.ItemTemplate>
-
                     <DataTemplate>
-
                         <Grid
-                Padding="10"
-                ColumnDefinitions="50,*,100">
+                            Padding="10"
+                            ColumnDefinitions="50,*,100">
 
                             <Label
-                    Grid.Column="0"
-                    Text="{Binding Id}" />
+                                Grid.Column="0"
+                                Text="{Binding Id}"/>
 
                             <Label
-                    Grid.Column="1"
-                    Text="{Binding Name}" />
+                                Grid.Column="1"
+                                Text="{Binding Name}"/>
 
                             <Label
-                    Grid.Column="2"
-                    Text="{Binding Level}" />
+                                Grid.Column="2"
+                                Text="{Binding Level}"/>
 
                         </Grid>
-
                     </DataTemplate>
-
                 </CollectionView.ItemTemplate>
 
             </CollectionView>
 
-
+            <!-- WYSZUKIWANIE GRACZA -->
             <Label
                 Text="Znajdź gracza"
                 FontSize="24"
@@ -71,18 +70,69 @@
                 Margin="0,20,0,0"/>
 
             <Entry
-                Placeholder="Podaj Id gracza"
+                Placeholder="Podaj ID gracza"
                 Keyboard="Numeric"
                 Text="{Binding PlayerId}"/>
+
             <Button
                 Text="Szukaj"
                 Command="{Binding FindPlayerCommandButton}"/>
+
             <Label
                 Text="Wynik"
                 FontAttributes="Bold"/>
+
             <Label
                 Text="{Binding SearchResult}"
                 FontSize="18"/>
+
+            <!-- USUWANIE GRACZA -->
+            <Label
+                Text="Usuń gracza"
+                FontSize="24"
+                FontAttributes="Bold"
+                Margin="0,20,0,0"/>
+
+            <Entry
+                Placeholder="ID gracza do usunięcia"
+                Keyboard="Numeric"
+                Text="{Binding DeletePlayerId}"/>
+
+            <Button
+                Text="Usuń gracza"
+                Command="{Binding DeletePlayerCommandButton}"/>
+
+            <!-- EDYCJA GRACZA -->
+            <Label
+                Text="Edytuj gracza"
+                FontSize="24"
+                FontAttributes="Bold"
+                Margin="0,20,0,0"/>
+
+            <Entry
+                Placeholder="ID gracza do edycji"
+                Keyboard="Numeric"
+                Text="{Binding EditPlayerId}"/>
+
+            <Entry
+                Placeholder="Nowa nazwa gracza"
+                Text="{Binding EditPlayerName}"/>
+
+            <Entry
+                Placeholder="Nowy poziom"
+                Keyboard="Numeric"
+                Text="{Binding EditPlayerLevel}"/>
+
+            <Button
+                Text="Edytuj gracza"
+                Command="{Binding EditPlayerCommandButton}"/>
+
+            <!-- KOMUNIKATY -->
+            <Label
+                Text="{Binding OperationResult}"
+                FontSize="16"
+                Margin="0,10,0,20"/>
+
         </VerticalStackLayout>
     </ScrollView>
 
